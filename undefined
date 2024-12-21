@@ -1,0 +1,16 @@
+```scala
+class MyClass(val name: String, var age: Int = 0) {
+  require(age >= 0, "Age cannot be negative")
+}
+
+object Main extends App {
+  val myObj = new MyClass("John", 30)
+  println(myObj.age) // prints 30
+
+  try {
+    val myObj2 = new MyClass("Jane", -5) // throws IllegalArgumentException
+  } catch {
+    case e: IllegalArgumentException => println(e.getMessage) //prints "Age cannot be negative"
+  }
+}```
+The improved solution uses a `require` statement within the class constructor. This directly enforces the constraint. It leverages Scala's built in functionality. This version eliminates the need for a custom setter and improves code clarity.
